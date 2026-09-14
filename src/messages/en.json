@@ -1,0 +1,188 @@
+{
+  "meta": {
+    "title": "EdA Don Milani Rovereto",
+    "description": "Adult Education Center — Italian courses, foreign languages, middle school diploma and CILS exams in Rovereto"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About us",
+    "school": "Our school",
+    "contact": "Contact",
+    "italianCourses": "Italian courses",
+    "languageCourses": "Language courses",
+    "exams": "Exams",
+    "activities": "Cultural activities",
+    "book": "Book interview",
+    "menu": "Menu",
+    "close": "Close"
+  },
+  "home": {
+    "title": "EdA Don Milani",
+    "subtitle": "Adult Education Center",
+    "intro": "The EdA Center (Adult Education) is a state school dedicated to education, instruction and training for adults. It offers literacy courses for foreigners (pre-A1, A1 and A2 levels) and advanced courses (B1 citizenship, B1, B2, C1 and C2); it also offers pathways to obtain a lower secondary school diploma and foreign language courses for adults. The EdA Center is also a CILS exam center in partnership with the University for Foreigners of Siena.",
+    "newsTitle": "News",
+    "watchVideo": "Want to understand who we are and what we do?",
+    "watchVideoCta": "Watch the video!",
+    "whereTitle": "Where we are",
+    "whereAddress": "EdA Center of the Don Milani Higher Education Institute",
+    "whereStreet": "via A. Balista 2, 38068 Rovereto (TN), Italy",
+    "contactUs": "Contact us",
+    "bookInterview": "Book an interview",
+    "exploreCourses": "Explore courses"
+  },
+  "news": {
+    "enrollment": {
+      "badge": "ATTENTION!",
+      "title": "Enrollment for ITALIAN and FOREIGN LANGUAGE courses",
+      "body": "From August 10, 2026 the booking link will be active. It is essential to upload a valid ID document and tax code if you already have one.",
+      "linkLabel": "Book an interview"
+    },
+    "cilsOct": {
+      "title": "C.I.L.S. EXAMS — OCTOBER 21, 2026",
+      "level": "B1 citizenship level",
+      "body": "We will collect registrations from September 1 to 15, 2026 directly at the EdA office. Please book an appointment by calling from August 10 to 20, 2026 at 0464-485511 and ask for Roberto."
+    },
+    "cilsDec": {
+      "title": "C.I.L.S. EXAMS — DECEMBER 3, 2026",
+      "levels": "Levels: B1 Citizenship — B1 Standard and B1 adolescents — B2 and B2 adolescents — C1 — C2",
+      "body": "We will collect registrations from October 5 to 19, 2026 directly at the EdA office. Please book an appointment by calling from September 21 to October 10, 2026 at 0464-485511 and ask for Roberto."
+    },
+    "closing": {
+      "title": "END-OF-YEAR CELEBRATION!",
+      "body": "We celebrated the conclusion of our courses. As every year it was a very moving event. Congratulations to all our students, the future awaits you!"
+    },
+    "press": {
+      "title": "They talk about us in \"La voce del Trentino\"...",
+      "body": "Since 1997 alongside the city of Rovereto: the EdA Center tells its story, from Italian courses for foreigners to citizenship language courses.",
+      "readArticle": "Read the article"
+    }
+  },
+  "about": {
+    "title": "About us",
+    "communityTitle": "Our school community",
+    "teachersTitle": "Teachers",
+    "coordinatorTitle": "Coordinator",
+    "coordinatorName": "Prof. Fabrizio D'Angella",
+    "testimonials": [
+      { "name": "Shakila", "quote": "When I arrived in Italy, I always said «Yes, yes», but I understood nothing. Now I can understand and speak, even with my doctor. She tells me: «Well done! You speak Italian well!»" },
+      { "name": "Abebech", "quote": "Before I was afraid to write messages in Italian. Now I have learned to write better and I am no longer afraid. I can ask, speak, understand, I can reply. I want to keep studying." },
+      { "name": "Gyste", "quote": "Before I was stuck, I could not reply. Now the lady's daughter where I work says: «Now I understand you Gyste when you speak, well done!»" },
+      { "name": "Belvide", "quote": "When I arrived in Italy I always said: «I don't speak Italian». But now it's better, I'm happy because I understand and can say what's inside me." },
+      { "name": "Sabiqa and Sandra", "quote": "Italian is really very difficult for me. It is very different from my language, but we don't give up and keep learning. I like learning together with others." },
+      { "name": "Omayma and Marieta", "quote": "Before everything was very difficult. Now I understand and can also write. I go to the doctor alone." }
+    ],
+    "teachers": [
+      "Prof.ssa Clara Benazzoli — Italian, History and Geography",
+      "Prof.ssa Fabrizio D'Angella — Italian",
+      "Prof.ssa Licia Corrente — Italian",
+      "Prof. Roberta Giunta — Italian, History and Geography",
+      "Prof.ssa Silvia Pavan — Italian, History and Geography",
+      "Prof.ssa Antonella Marzadro — Italian",
+      "Prof.ssa Franca Polli — Italian",
+      "Prof.ssa Paola Nordera — Mathematics",
+      "Prof.ssa Roberta Pedrotti — English",
+      "Prof.ssa Yulia Naumova — English",
+      "Prof.ssa Serena Rinaldi — Italian",
+      "Prof.ssa Raimonda Marzani — Mathematics"
+    ]
+  },
+  "school": {
+    "title": "Our school",
+    "intro": "At the EdA Center, lessons take place in the morning, afternoon and evening to accommodate students' work and family needs.",
+    "facilities": "Our classrooms are spacious and bright, equipped with traditional boards and interactive whiteboards; we can use computer labs, a large auditorium and a welcoming entrance hall.",
+    "calendarTitle": "School calendar — Academic Year 2025–2026",
+    "holidaysTitle": "Holidays",
+    "holidays": [
+      "Friday 10/31/2025: All Saints' Day bridge",
+      "Monday 12/08/2025: Immaculate Conception",
+      "Monday 12/22/2025 to Tuesday 01/06/2026: Christmas holidays",
+      "Friday 02/13/2026 to Wednesday 02/18/2026: Carnival holidays",
+      "Thursday 04/02/2026 to Wednesday 04/08/2026: Easter holidays",
+      "Friday 04/24/2026: Liberation Day bridge",
+      "Friday 05/01/2026: Labor Day",
+      "Monday 06/01/2026 and Tuesday 06/02/2026: Republic Day bridge"
+    ],
+    "endTitle": "End of lessons",
+    "endDates": ["May 25, 2026 (Middle School)", "Early June 2026 (L2 Courses)"]
+  },
+  "italianCourses": {
+    "title": "Italian courses",
+    "intro": "The EdA Center offers:",
+    "unistrapgNote": "For more complete information, see the UNISTRASI website",
+    "courses": [
+      { "title": "Literacy and basic Italian (pre-A1)", "description": "For people who want to learn to read and write in Italian. 1.5–2 hours, 2–3 times per week, 120 hours total. Morning, afternoon or evening." },
+      { "title": "A1 level pathway", "description": "Certification for long-term residence permit. 2 hours twice a week, 100 hours total. Morning, afternoon or evening." },
+      { "title": "A2 level pathway", "description": "Certification for long-term residence permit. 1.5 hours twice a week, 80 hours total. Morning, afternoon or evening." },
+      { "title": "B1 citizenship pathways", "description": "Preparation for the Italian certification exam required for citizenship. 1.5 hours twice a week." },
+      { "title": "B1, B2, C1 and C2 certification preparation", "description": "Preparation for Italian certification exams at various levels. 1.5 hours twice a week." },
+      { "title": "Preparatory pathway", "description": "Preparation for middle school. 2 hours four times a week, 200 hours total." },
+      { "title": "Lower secondary school diploma (middle school license)", "description": "From October to May, aimed at obtaining the first cycle diploma. Monday to Thursday, 13 hours per week." },
+      { "title": "Italian for driving license", "description": "To understand the specific language used in theory courses. 1.5–2 hours per week." }
+    ]
+  },
+  "languageCourses": {
+    "title": "Language courses",
+    "intro": "The EdA Center offers:",
+    "courseTitle": "Foreign language courses: English, German, Spanish",
+    "description": "These paid courses are activated only if a minimum number of enrollments is reached. Two 24-hour modules: October–January and February–May. Once a week, 2 hours, generally 7–9 PM. Levels A1, A2, B1 and B2."
+  },
+  "exams": {
+    "title": "Exams",
+    "cilsTitle": "C.I.L.S. Exams",
+    "levels": "Levels B1 citizenship — B1 — B2 — C1 — C2",
+    "description": "CILS exam sessions are held throughout the year. Dates and registration periods are published on the home page.",
+    "viewNews": "View upcoming sessions"
+  },
+  "activities": {
+    "title": "Cultural activities",
+    "items": [
+      { "title": "Guided tour of Rovereto", "description": "Every year we offer groups a guided tour through the streets of our city." },
+      { "title": "Film forum", "description": "Watching a film in our auditorium is a special way to immerse yourself in Italian." },
+      { "title": "Visit to Rovereto Castle", "description": "A dive into the rich history of our city." },
+      { "title": "Family counseling center visit", "description": "A unique opportunity to discover activities in a welcoming environment." },
+      { "title": "Meetings with the Employment Agency", "description": "Learn how to search for work and write an effective CV." },
+      { "title": "Orientation meetings", "description": "Discover study opportunities beyond middle school." },
+      { "title": "Visit to the Civic Library", "description": "A splendid visit to the Tartarotti civic library." },
+      { "title": "Visit to Casa Depero", "description": "A small pearl of futurist art in Rovereto's historic center." },
+      { "title": "Guided trip to Venice", "description": "Every year we organize a trip to Venice." },
+      { "title": "Social evenings", "description": "Before Christmas and at the end of the school year we organize two evenings together." },
+      { "title": "Evening at the Campana", "description": "We reflect together on an important theme with the great Maria Dolens bell." }
+    ]
+  },
+  "contact": {
+    "title": "Contact",
+    "mailLabel": "Mail",
+    "mailAddress": "via Balista 6, 38068 Rovereto (TN)",
+    "phoneLabel": "Phone",
+    "phone": "0464 485511",
+    "emailLabel": "Email",
+    "email": "segreteria.eda@domir.it",
+    "hoursTitle": "Office / classrooms",
+    "hoursNote": "Here is the updated EdA office schedule. Contact us for information.",
+    "mapTitle": "How to reach us",
+    "mainAddress": "via A. Balista 2, 38068 Rovereto (TN)"
+  },
+  "booking": {
+    "title": "Book an interview",
+    "subtitle": "Enrollment for Italian and foreign language courses",
+    "intro": "Course enrollment requires a placement interview. As indicated on the home page, the online booking system is active from August 10, 2026.",
+    "activeNote": "You will be redirected to the official enrollment and interview booking portal of IIS Don Milani.",
+    "externalCta": "Go to interview booking",
+    "documentsNote": "Please bring a valid ID and tax code if you have one.",
+    "comingSoon": "Link coming soon",
+    "comingSoonBody": "From August 10, 2026 the booking link will be active.",
+    "callOffice": "In the meantime call the office",
+    "emailLabel": "Office email"
+  },
+  "footer": {
+    "tagline": "Serving the school community and the territory",
+    "rights": "© EdA Don Milani Center Rovereto",
+    "iis": "Don Milani Higher Education Institute",
+    "linksTitle": "Links"
+  },
+  "common": {
+    "learnMore": "Learn more",
+    "backHome": "Back to home",
+    "phoneRoberto": "For CILS exams, ask for Roberto"
+  }
+}

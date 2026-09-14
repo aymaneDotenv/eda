@@ -1,0 +1,33 @@
+services:
+  eda:
+    build: .
+    ports:
+      - "8787:8787"
+    environment:
+      NODE_ENV: production
+      SESSION_SECRET: ${SESSION_SECRET:?Set SESSION_SECRET in .env}
+      INITIAL_ADMIN_USERNAME: ${INITIAL_ADMIN_USERNAME:-admin}
+      INITIAL_ADMIN_PASSWORD: ${INITIAL_ADMIN_PASSWORD:?Set INITIAL_ADMIN_PASSWORD in .env}
+      DATA_DIRECTORY: /app/data
+      # Set only after the school has approved and configured its email/SMS delivery service.
+      NOTIFICATION_WEBHOOK_URL: ${NOTIFICATION_WEBHOOK_URL:-}
+    volumes:
+      - eda-data:/app/data
+    restart: unless-stopped
+  backup:
+    build: .
+    command: ["node", "scripts/backup-daemon.mjs"]
+    profiles: ["operations"]
+    environment:
+      DATA_DIRECTORY: /app/data
+      BACKUP_DIRECTORY: /backups
+      BACKUP_INTERVAL_HOURS: ${BACKUP_INTERVAL_HOURS:-24}
+      BACKUP_RETENTION_DAYS: ${BACKUP_RETENTION_DAYS:-30}
+    volumes:
+      - eda-data:/app/data
+      - eda-backups:/backups
+    restart: unless-stopped
+
+volumes:
+  eda-data:
+  eda-backups:

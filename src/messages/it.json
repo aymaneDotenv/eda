@@ -1,0 +1,266 @@
+{
+  "meta": {
+    "title": "EdA Don Milani Rovereto",
+    "description": "Centro Educazione degli Adulti — corsi di italiano, lingue straniere, licenza media ed esami CILS a Rovereto"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "Chi siamo",
+    "school": "La nostra scuola",
+    "contact": "Contatti",
+    "italianCourses": "Corsi di italiano",
+    "languageCourses": "Corsi di lingue",
+    "exams": "Esami",
+    "activities": "Attività culturali",
+    "book": "Prenota colloquio",
+    "menu": "Menu",
+    "close": "Chiudi"
+  },
+  "home": {
+    "title": "EdA Don Milani",
+    "subtitle": "Centro Educazione degli Adulti",
+    "intro": "Il Centro EdA (Educazione degli Adulti) è una scuola statale che si occupa di educazione, istruzione e formazione per gli adulti. Organizza corsi di alfabetizzazione linguistica per stranieri (livelli pre-A1, A1 e A2) e corsi di livello avanzato (B1 cittadinanza, B1, B2, C1 e C2); inoltre propone percorsi per il conseguimento del diploma di scuola secondaria di primo grado (ex licenza media) e corsi di lingua straniera per adulti. Il Centro EdA è, inoltre, centro d'esame per la Certificazione della Conoscenza della Lingua Italiana (CILS) in convenzione con l'Università per Stranieri di Siena.",
+    "newsTitle": "News",
+    "watchVideo": "Vuoi capire chi siamo e cosa facciamo?",
+    "watchVideoCta": "Guarda il video!",
+    "whereTitle": "Dove siamo",
+    "whereAddress": "Centro EdA dell'Istituto d'Istruzione Superiore Don Milani",
+    "whereStreet": "via A. Balista 2, 38068 Rovereto (TN)",
+    "contactUs": "Contattaci",
+    "bookInterview": "Prenota un colloquio",
+    "exploreCourses": "Scopri i corsi"
+  },
+  "news": {
+    "enrollment": {
+      "badge": "ATTENZIONE!",
+      "title": "Iscrizioni ai corsi di ITALIANO e LINGUE STRANIERE",
+      "body": "Dal 10 agosto 2026 sarà attivo il link per prenotare un colloquio. È fondamentale inserire copia di un documento di identità valido e del codice fiscale se già in possesso.",
+      "linkLabel": "Prenota un colloquio"
+    },
+    "cilsOct": {
+      "title": "ESAMI C.I.L.S. — 21 OTTOBRE 2026",
+      "level": "Livello B1 cittadinanza",
+      "body": "Raccoglieremo le iscrizioni dal 01 al 15 settembre 2026 direttamente in ufficio EdA; per questo è necessario prenotare un appuntamento chiamando dal 10 al 20 agosto 2026 il numero 0464-485511 chiedendo di Roberto."
+    },
+    "cilsDec": {
+      "title": "ESAMI C.I.L.S. — 3 DICEMBRE 2026",
+      "levels": "Livelli: B1 Cittadinanza — B1 Standard e B1 adolescenti — B2 e B2 adolescenti — C1 — C2",
+      "body": "Raccoglieremo le iscrizioni dal 05 al 19 ottobre 2026 direttamente in ufficio EdA; per questo è necessario prenotare un appuntamento chiamando dal 21 settembre al 10 ottobre 2026 il numero 0464-485511 chiedendo di Roberto."
+    },
+    "closing": {
+      "title": "GRANDE FESTA DI CHIUSURA!",
+      "body": "Ieri abbiamo festeggiato la conclusione dei nostri corsi. Come ogni anno è stato un evento molto emozionante che racchiude tanti significati: dietro ogni attestato ci sono mesi di grandissimo impegno, determinazione e sacrifici. Vedere i vostri sorrisi e la vostra gioia nel raggiungere questo traguardo è la nostra soddisfazione più grande. Complimenti a tutti i nostri studenti, il futuro vi aspetta!"
+    },
+    "press": {
+      "title": "Su \"La voce del Trentino\" parlano di noi...",
+      "body": "Dal 1997 accanto alla città di Rovereto: il Centro EdA si racconta, dai corsi di italiano per stranieri a quelli di lingua aperti alla cittadinanza.",
+      "readArticle": "Leggi l'articolo"
+    }
+  },
+  "about": {
+    "title": "Chi siamo",
+    "communityTitle": "La nostra comunità scolastica",
+    "teachersTitle": "Le / i docenti",
+    "coordinatorTitle": "Il coordinatore",
+    "coordinatorName": "Prof. Fabrizio D'Angella",
+    "testimonials": [
+      {
+        "name": "Shakila",
+        "quote": "Quando sono arrivata in Italia, dicevo sempre «Sì, si», ma non capivo niente. Ora posso capire e anche parlare, anche con la mia dottoressa. Ora lei mi dice: «Brava! Parli bene l'italiano!»"
+      },
+      {
+        "name": "Abebech",
+        "quote": "Prima avevo paura a scrivere messaggi in italiano. Ora ho imparato a scrivere meglio e non ho più paura. Posso chiedere, parlare, capire, posso rispondere. Voglio continuare a studiare e vorrei tornare a fare il mio lavoro, che facevo in Etiopia. La mia testa si è aperta come una finestra."
+      },
+      {
+        "name": "Gyste",
+        "quote": "Prima ero bloccata, non potevo rispondere, la figlia della signora dove lavoro ora mi dice: «Ora ti capisco Gyste quando parli, brava!»"
+      },
+      {
+        "name": "Belvide",
+        "quote": "Quando sono arrivata in Italia io dicevo sempre: «non parlo italiano — non parlo italiano». Ma adesso è meglio, sono felice perché capisco e posso dire quello che ho dentro."
+      },
+      {
+        "name": "Sabiqa e Sandra",
+        "quote": "L'italiano è davvero molto difficile per me. È molto diverso dalla mia lingua, ma noi non molliamo e andiamo avanti ad imparare. Mi piace imparare insieme agli altri."
+      },
+      {
+        "name": "Omayma e Marieta",
+        "quote": "Prima era tutto molto difficile. Ora capisco e posso anche scrivere. Vado dalla dottoressa da sola."
+      }
+    ],
+    "teachers": [
+      "Prof.ssa Clara Benazzoli — Insegnante di Italiano, Storia e Geografia",
+      "Prof.ssa Fabrizio D'Angella — Insegnante di Italiano",
+      "Prof.ssa Licia Corrente — Insegnante di Italiano",
+      "Prof. Roberta Giunta — Insegnante di Italiano, Storia e Geografia",
+      "Prof.ssa Silvia Pavan — Insegnante di Italiano, Storia e Geografia",
+      "Prof.ssa Antonella Marzadro — Insegnante di Italiano",
+      "Prof.ssa Franca Polli — Insegnante di Italiano",
+      "Prof.ssa Paola Nordera — Insegnante di matematica",
+      "Prof.ssa Roberta Pedrotti — Insegnante di Inglese",
+      "Prof.ssa Yulia Naumova — Insegnante di Inglese",
+      "Prof.ssa Serena Rinaldi — Insegnante di Italiano",
+      "Prof.ssa Raimonda Marzani — Insegnante di matematica"
+    ]
+  },
+  "school": {
+    "title": "La nostra scuola",
+    "intro": "Al Centro EdA si svolgono lezioni alla mattina, al pomeriggio e in orario preserale per favorire le principali esigenze lavorative e familiari degli studenti.",
+    "facilities": "Le nostre aule sono ampie e luminose, dotate di lavagna tradizionale e LIM; possiamo utilizzare laboratori di informatica, un grande auditorium e all'ingresso ci accoglie un atrio spazioso ed attraente.",
+    "calendarTitle": "Calendario scolastico — Anno Scolastico 2025–2026",
+    "holidaysTitle": "Giorni di vacanza",
+    "holidays": [
+      "venerdì 31/10/2025: Ponte di Ognissanti",
+      "lunedì 08/12/2025: Festa dell'Immacolata",
+      "Da lunedì 22/12/2025 a martedì 06/01/2026: Vacanze di Natale",
+      "Da venerdì 13/02/2026 a mercoledì 18/02/2026: Vacanze di Carnevale",
+      "Da giovedì 02/04/2026 a mercoledì 08/04/2026: Vacanze di Pasqua",
+      "venerdì 24/04/2026: Ponte Festa della Liberazione",
+      "venerdì 01/05/2026: Festa dei lavoratori",
+      "lunedì 01/06/2026 e martedì 02/06/2026: Ponte Festa della Repubblica"
+    ],
+    "endTitle": "Termine lezioni",
+    "endDates": [
+      "25 maggio 2026 (Scuola Media)",
+      "Primi di giugno 2026 (Corsi L2)"
+    ]
+  },
+  "italianCourses": {
+    "title": "Corsi di italiano",
+    "intro": "Il Centro EdA offre:",
+    "unistrapgNote": "Si rimanda per informazioni più complete al sito di UNISTRASI",
+    "courses": [
+      {
+        "title": "Percorsi di alfabetizzazione e apprendimento della lingua italiana, livello base (pre-A1)",
+        "description": "Questi percorsi si rivolgono alle persone che vogliono imparare a leggere e scrivere in italiano. La frequenza è di 1:30–2 ore per 2/3 volte in settimana per un totale di 120 ore. Le lezioni si tengono la mattina o il pomeriggio o la sera."
+      },
+      {
+        "title": "Percorso di livello A1",
+        "description": "Al termine di questo percorso è possibile ottenere la certificazione richiesta per l'ottenimento del permesso di soggiorno di lungo periodo. La frequenza è di 2 ore per 2 volte in settimana per un totale di 100 ore. Le lezioni si tengono la mattina o il pomeriggio o la sera."
+      },
+      {
+        "title": "Percorso di livello A2",
+        "description": "Al termine di questo percorso è possibile ottenere la certificazione richiesta per l'ottenimento del permesso di soggiorno di lungo periodo. La frequenza è di 1 ora e 30 per 2 volte in settimana per un totale di 80 ore. Le lezioni si tengono la mattina o il pomeriggio o la sera."
+      },
+      {
+        "title": "Percorsi B1 cittadinanza",
+        "description": "Per preparare l'esame di certificazione di italiano necessario per ottenere la cittadinanza. La frequenza è di 1 ora e 30 per 2 volte in settimana. Le lezioni si tengono la mattina o il pomeriggio o la sera."
+      },
+      {
+        "title": "Percorsi di preparazione alle certificazioni B1, B2, C1 e C2",
+        "description": "Per preparare l'esame di certificazione di italiano per i vari livelli. La frequenza è di 1 ora e 30 per 2 volte a settimana. Le lezioni si tengono la mattina o il pomeriggio o la sera."
+      },
+      {
+        "title": "Percorso propedeutico",
+        "description": "Per prepararsi alla scuola media. La frequenza è di 2 ore per 4 volte in settimana per un totale di 200 ore. Le lezioni si tengono la mattina o il pomeriggio o la sera."
+      },
+      {
+        "title": "Percorsi per ottenere il diploma di scuola secondaria di primo grado (ex licenza media)",
+        "description": "Il corso, articolato dal mese di ottobre al mese di maggio, è finalizzato al conseguimento del diploma conclusivo del primo ciclo di istruzione, previo superamento dell'Esame di Stato finale. Le lezioni si tengono dal lunedì al giovedì, per un totale di 13 ore settimanali."
+      },
+      {
+        "title": "Percorso di lingua italiana per la patente",
+        "description": "Per comprendere il linguaggio specifico utilizzato nei corsi di teoria. Sono previste 1:30–2 ore settimanali di frequenza."
+      }
+    ]
+  },
+  "languageCourses": {
+    "title": "Corsi di lingue",
+    "intro": "Il Centro EdA offre:",
+    "courseTitle": "Corsi di lingue straniere: inglese, tedesco, spagnolo",
+    "description": "Tali corsi fanno parte dell'ampliamento dell'offerta formativa quindi sono a pagamento e vengono attivati solo nel caso si raggiunga un numero minimo di iscritti. Sono organizzati in due moduli di 24 ore: 1° modulo da ottobre a gennaio, 2° modulo da febbraio a maggio. Le lezioni si svolgono una volta a settimana ed hanno durata di due ore, generalmente nella fascia oraria dalle 19 alle 21. I corsi sono rivolti al raggiungimento dei livelli A1, A2, B1 e B2."
+  },
+  "exams": {
+    "title": "Esami",
+    "cilsTitle": "Esami C.I.L.S.",
+    "levels": "Livelli B1 cittadinanza — B1 — B2 — C1 — C2",
+    "description": "Nel corso dell'anno si svolgono sessioni di ESAMI CILS per i livelli B1 CITTADINANZA, B1, B2, C1 e C2. Le date di svolgimento e i periodi per iscriversi vengono di volta in volta pubblicati in home page.",
+    "viewNews": "Vedi le prossime sessioni"
+  },
+  "activities": {
+    "title": "Attività culturali",
+    "items": [
+      {
+        "title": "Visita guidata alla città di Rovereto",
+        "description": "Ogni anno proponiamo ai vari gruppi una visita guidata lungo le strade della nostra città. Percorriamo strade, ammiriamo palazzi e scopriamo i vicoli più nascosti della bella Rovereto."
+      },
+      {
+        "title": "Cineforum",
+        "description": "Guardare un film nel nostro auditorium è un'attività speciale per immergersi nella lingua italiana, per scoprire modi di dire particolari e per sorridere e riflettere insieme."
+      },
+      {
+        "title": "Visita al Castello di Rovereto",
+        "description": "La visita al castello è un tuffo nella ricca storia della nostra città: le guide ci accolgono e ci aiutano a osservare e comprendere questa nostra meraviglia."
+      },
+      {
+        "title": "Conosciamo il Consultorio",
+        "description": "La visita al Consultorio per il singolo, la coppia e la famiglia è un'opportunità unica per scoprire le attività svolte in un clima accogliente e amichevole."
+      },
+      {
+        "title": "Incontri con l'Agenzia del Lavoro",
+        "description": "Gli operatori del Centro per l'impiego ci spiegano come cercare lavoro, chi può aiutarci e quali sono le regole per stendere un curriculum efficace."
+      },
+      {
+        "title": "Incontri di Orientamento",
+        "description": "Ogni anno si svolgono incontri che ci permettono di conoscere le possibilità di studio oltre la scuola media."
+      },
+      {
+        "title": "Visita alla Biblioteca Civica",
+        "description": "La visita alla biblioteca civica Tartarotti è sempre splendida ed emozionante: entriamo in un mondo ricco di storia."
+      },
+      {
+        "title": "Visita alla Casa Depero",
+        "description": "La Casa d'Arte Futurista Depero è una piccola perla del centro storico di Rovereto. Una vera festa per gli occhi!"
+      },
+      {
+        "title": "Visita guidata a Venezia",
+        "description": "Ogni anno organizziamo un viaggio a Venezia e ci lasciamo incantare dalle storie e dalle culture che qui si intrecciano."
+      },
+      {
+        "title": "Serate conviviali",
+        "description": "Prima delle vacanze di Natale e per la conclusione dell'anno scolastico organizziamo due serate per stare insieme in allegria."
+      },
+      {
+        "title": "Serata alla Campana",
+        "description": "Le serate alla Campana sono sempre molto speciali: ogni anno riflettiamo tutti insieme su un tema importante e uniamo le nostre voci ai rintocchi della grande Maria Dolens."
+      }
+    ]
+  },
+  "contact": {
+    "title": "Contatti",
+    "mailLabel": "Posta",
+    "mailAddress": "via Balista 6, 38068 Rovereto (TN)",
+    "phoneLabel": "Telefono",
+    "phone": "0464 485511",
+    "emailLabel": "Email",
+    "email": "segreteria.eda@domir.it",
+    "hoursTitle": "Segreteria / aule",
+    "hoursNote": "Ecco l'orario aggiornato della segreteria EdA. Contattaci per informazioni.",
+    "mapTitle": "Come raggiungerci",
+    "mainAddress": "via A. Balista 2, 38068 Rovereto (TN)"
+  },
+  "booking": {
+    "title": "Prenota un colloquio",
+    "subtitle": "Iscrizioni ai corsi di italiano e lingue straniere",
+    "intro": "Per l'iscrizione ai corsi è necessario prenotare un colloquio conoscitivo. Come indicato nella home, dal 10 agosto 2026 è attivo il sistema di prenotazione online.",
+    "activeNote": "Verrai reindirizzato al portale ufficiale di iscrizione e prenotazione colloqui dell'Istituto Don Milani.",
+    "externalCta": "Vai alla prenotazione colloquio",
+    "documentsNote": "È fondamentale inserire copia di un documento di identità valido e del codice fiscale se già in possesso.",
+    "comingSoon": "Link in arrivo",
+    "comingSoonBody": "Dal 10 agosto 2026 sarà attivo il link per prenotare un colloquio.",
+    "callOffice": "Nel frattempo chiama la segreteria",
+    "emailLabel": "Email segreteria"
+  },
+  "footer": {
+    "tagline": "Al servizio della comunità scolastica e del territorio",
+    "rights": "© Centro EdA Don Milani Rovereto",
+    "iis": "Istituto d'Istruzione Superiore Don Milani",
+    "linksTitle": "Collegamenti"
+  },
+  "common": {
+    "learnMore": "Scopri di più",
+    "backHome": "Torna alla home",
+    "phoneRoberto": "Per esami CILS, chiedi di Roberto"
+  }
+}
