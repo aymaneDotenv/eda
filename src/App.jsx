@@ -1,23 +1,17 @@
 import React, { useEffect, useState } from 'react'
-import { I18nProvider, useI18n } from './i18n/I18n.jsx'
-import { defaultLocale, hrefFor, localeNames, locales, parseRoute, rtlLocales } from './i18n/config.js'
 
-const navigation = [
-  ['home', 'nav.home'],
-  ['about', 'nav.about'],
-  ['italian', 'nav.italianCourses'],
-  ['languages', 'nav.languageCourses'],
-  ['school', 'nav.school'],
-  ['exams', 'nav.exams'],
-  ['culture', 'nav.activities'],
-  ['contacts', 'nav.contact'],
+const navigation = [['home', 'Home'], ['about', 'Il Centro'], ['italian', 'Italiano'], ['languages', 'Lingue'], ['school', 'Scuola media'], ['exams', 'Esami CILS'], ['culture', 'Vita al Centro'], ['contacts', 'Contatti']]
+const pagePaths = { home: '/', about: '/il-centro', italian: '/italiano', languages: '/lingue', school: '/scuola-media', exams: '/esami-cils', culture: '/vita-al-centro', contacts: '/contatti', accessibility: '/accessibilita', dashboard: '/segreteria' }
+const pageFromPath = pathname => Object.entries(pagePaths).find(([, value]) => value === pathname)?.[0] || 'home'
+const paths = [
+  { id: 'italian', no: '01', title: 'Italiano per la vita di ogni giorno', text: 'Dai primi passi alle certificazioni CILS, con orari pensati per le persone adulte.', tone: 'blue' },
+  { id: 'school', no: '02', title: 'Un diploma per ripartire', text: 'Il percorso per conseguire il titolo conclusivo del primo ciclo di istruzione.', tone: 'sun' },
+  { id: 'languages', no: '03', title: 'Una nuova lingua, un nuovo sguardo', text: 'Inglese, tedesco e spagnolo per aprire nuove possibilità.', tone: 'rose' },
 ]
-const bookingUrl = 'https://registroelettronico.nettunopa.it/isccpia/?id=120101'
-const pathCards = [
-  { id: 'italian', no: '01', title: 'ui.pathItalian', text: 'ui.pathItalianText', tone: 'blue' },
-  { id: 'school', no: '02', title: 'ui.pathSchool', text: 'ui.pathSchoolText', tone: 'sun' },
-  { id: 'languages', no: '03', title: 'ui.pathLanguages', text: 'ui.pathLanguagesText', tone: 'rose' },
+const italianCourses = [
+  ['Pre-A1', 'Imparare a leggere e scrivere in italiano', '120 ore'], ['A1', 'Autonomia nelle situazioni essenziali', '100 ore'], ['A2', 'Consolidare la lingua di ogni giorno', '80 ore'], ['B1 cittadinanza', 'Preparazione alla certificazione richiesta', '2 incontri settimanali'], ['B1 – C2', 'Preparazione alle certificazioni di lingua italiana', '2 incontri settimanali'], ['Propedeutico', 'Preparazione al percorso di scuola media', '200 ore'], ['Scuola media', 'Diploma conclusivo del primo ciclo', 'Ottobre – maggio'], ['Italiano per la patente', 'Lessico e comprensione del corso di teoria', '1:30 – 2 ore settimanali'],
 ]
+const activities = ['Visite guidate a Rovereto', 'Cineforum', 'Biblioteca Civica Tartarotti', 'Casa Depero', 'Incontri con l’Agenzia del Lavoro', 'Serate conviviali']
 const starterAppointments = [
   { id: 1, time: '09:00', name: 'Amina El Mansouri', reason: 'Colloquio di iscrizione', language: 'Arabo', status: 'Confermato' },
   { id: 2, time: '10:15', name: 'Oleh Shevchenko', reason: 'Test di italiano', language: 'Italiano', status: 'Da confermare' },
@@ -27,58 +21,47 @@ const starterAppointments = [
 
 function Arrow() { return <span aria-hidden="true">→</span> }
 
-function Header({ page, setPage, locale, setLocale }) {
-  const { t } = useI18n()
+function Header({ page, setPage }) {
   const [menuOpen, setMenuOpen] = useState(false)
   const go = (next) => { setPage(next); setMenuOpen(false); window.scrollTo({ top: 0, behavior: 'smooth' }) }
   return <header className="header">
-    <button className="identity" onClick={() => go('home')} aria-label={`${t('home.title')}, ${t('nav.home')}`}><span className="identity-dot">EdA</span><span><b>Don Milani</b><small>{t('ui.brandSmall')}</small></span></button>
-    <button className="menu-button" onClick={() => setMenuOpen(!menuOpen)} aria-expanded={menuOpen} aria-controls="primary-navigation">{t('nav.menu')} <span>≡</span></button>
-    <nav className={menuOpen ? 'nav open' : 'nav'} id="primary-navigation">{navigation.map(([id, key]) => <button className={page === id ? 'selected' : ''} aria-current={page === id ? 'page' : undefined} onClick={() => go(id)} key={id}>{t(key)}</button>)}</nav>
-    <label className="lang-switch">
-      <span className="sr-only">{t('ui.language')}</span>
-      <select value={locale} onChange={event => setLocale(event.target.value)} aria-label={t('ui.language')}>
-        {locales.map(code => <option value={code} key={code} lang={code}>{localeNames[code]}</option>)}
-      </select>
-    </label>
-    <button className="staff-button" onClick={() => go('dashboard')}>{t('ui.staff')} <Arrow /></button>
+    <button className="identity" onClick={() => go('home')} aria-label="EdA Don Milani, home"><span className="identity-dot">EdA</span><span><b>Don Milani</b><small>Rovereto · Educazione degli adulti</small></span></button>
+    <button className="menu-button" onClick={() => setMenuOpen(!menuOpen)} aria-expanded={menuOpen} aria-controls="primary-navigation">Menu <span>≡</span></button>
+    <nav className={menuOpen ? 'nav open' : 'nav'} id="primary-navigation" aria-label="Navigazione principale">{navigation.map(([id, label]) => <button className={page === id ? 'selected' : ''} aria-current={page === id ? 'page' : undefined} onClick={() => go(id)} key={id}>{label}</button>)}</nav>
+    <button className="staff-button" onClick={() => go('dashboard')}>Segreteria <Arrow /></button>
   </header>
 }
 
 function Home({ setPage }) {
-  const { t, messages } = useI18n()
   const go = (next) => { setPage(next); window.scrollTo({ top: 0, behavior: 'smooth' }) }
-  const bookLabel = `${t('home.bookInterview')}: ${t('ui.newWindow')}`
   return <main className="home" id="main-content" tabIndex="-1">
     <section className="welcome">
-      <div className="welcome-copy"><p className="kicker">{t('home.subtitle')}</p><h1>{t('ui.heroTitle')}<br /><em>{t('ui.heroEm')}</em></h1><p className="welcome-lead">{t('home.intro')}</p><div className="welcome-actions"><a className="primary-action" href={bookingUrl} target="_blank" rel="noreferrer" aria-label={bookLabel}>{t('home.bookInterview')} <Arrow /></a><button className="quiet-action" onClick={() => go('italian')}>{t('home.exploreCourses')} <Arrow /></button></div></div>
-      <div className="welcome-image"><img src="https://lh3.googleusercontent.com/docsubipk/AP9E6xUkvbgEcJRFGObyFR3Fwdw8sQXT2ZUUTX8OPuUEm61P1tx9hzePeqsT0aWaJ5JyjtKormGnjHhTVCoUaMHV4LRz-kG-C34nW9GK2ejU1dNdhCs91yMNp8DPOqxSpTPIRzlVwTtV7iWZm9tONyq3Oi96QE-S1rFhe6bUZ9N_rWc" alt={t('ui.heroImageAlt')} /><p>{t('ui.heroCaption')}</p></div>
+      <div className="welcome-copy"><p className="kicker">Centro EdA Don Milani · Rovereto</p><h1>Il prossimo passo<br />comincia <em>qui.</em></h1><p className="welcome-lead">Una scuola pubblica per adulti, vicina alle persone e ai loro progetti. Per imparare l’italiano, prendere un diploma e trovare nuove direzioni.</p><div className="welcome-actions"><a className="primary-action" href="https://registroelettronico.nettunopa.it/isccpia/?id=120101" target="_blank" rel="noreferrer" aria-label="Prenota un colloquio: si apre in una nuova finestra">Prenota un colloquio <Arrow /></a><button className="quiet-action" onClick={() => go('italian')}>Scopri i percorsi <Arrow /></button></div></div>
+      <div className="welcome-image"><img src="https://lh3.googleusercontent.com/docsubipk/AP9E6xUkvbgEcJRFGObyFR3Fwdw8sQXT2ZUUTX8OPuUEm61P1tx9hzePeqsT0aWaJ5JyjtKormGnjHhTVCoUaMHV4LRz-kG-C34nW9GK2ejU1dNdhCs91yMNp8DPOqxSpTPIRzlVwTtV7iWZm9tONyq3Oi96QE-S1rFhe6bUZ9N_rWc" alt="La comunità del Centro EdA riunita nell’atrio della scuola" /><p>Ogni traguardo è una storia da celebrare.</p></div>
     </section>
-    <section className="quick-start"><p>{t('ui.startHere')}</p>{pathCards.map(path => <button onClick={() => go(path.id)} key={path.id}><span>{path.no}</span>{t(path.title)}<Arrow /></button>)}</section>
-    <section className="intro"><div><p className="kicker">{t('ui.listenKicker')}</p><h2>{t('ui.listenTitle')}</h2></div><div><p>{t('ui.listenBody')}</p><button className="inline-link" onClick={() => go('about')}>{t('ui.knowCenter')} <Arrow /></button></div></section>
-    <section className="pathways"><div className="section-heading"><p className="kicker">{t('ui.pathsKicker')}</p><h2>{t('ui.pathsTitle')}</h2></div><div className="path-grid">{pathCards.map(path => <button className={`path-card ${path.tone}`} onClick={() => go(path.id)} key={path.id}><span>{path.no}</span><h3>{t(path.title)}</h3><p>{t(path.text)}</p><i><Arrow /></i></button>)}</div></section>
-    <section className="notice-board"><div className="notice-intro"><p className="kicker">{t('ui.nowKicker')}</p><h2>{t('ui.nowTitle')}</h2><button className="inline-link" onClick={() => go('contacts')}>{t('ui.allContacts')} <Arrow /></button></div><div className="notice-list"><article><p className="notice-tag">{messages.news.enrollment.badge}</p><h3>{messages.news.enrollment.title}</h3><p>{messages.news.enrollment.body}</p><a href={bookingUrl} target="_blank" rel="noreferrer" aria-label={`${messages.news.enrollment.linkLabel}: ${t('ui.newWindow')}`}>{messages.news.enrollment.linkLabel} <Arrow /></a></article><article><p className="notice-tag">{t('exams.cilsTitle')}</p><h3>{messages.news.cilsOct.title}</h3><p>{messages.news.cilsOct.body}</p><button onClick={() => go('exams')}>{t('exams.viewNews')} <Arrow /></button></article></div></section>
-    <section className="community"><div className="community-photo"><img src="https://lh3.googleusercontent.com/sitesv/AG8ngQU6mJc-r-6gzKQWdtbZgwt99fWOY19awBxUFzCpMM1HFa3txNH1Iq-KAhcFxp0e7gDplXDSjkDs6LZUA12lnj2V_EjR9vYyTEnW5IH3rJOExykPR1VQ1YqFNI_GLsYclb4fO89MXgbVP-1ipNvZUOTRLZ8DgasS6aj7Okvu-u5hTnVZAJ3A5HtuZE6X03I663_zJJRek7nVXbB290bXUZs881G5nTAZ9nPPYZ4H=w1280" alt={t('ui.schoolImageAlt')} /></div><div className="community-copy"><p className="kicker">{t('ui.beyondKicker')}</p><h2>{t('ui.beyondTitle')}</h2><p>{t('ui.beyondBody')}</p><button className="inline-link" onClick={() => go('culture')}>{t('ui.discoverActivities')} <Arrow /></button></div></section>
-    <section className="visit"><div><p className="kicker">{t('ui.visitKicker')}</p><h2>{t('ui.visitTitle')}</h2></div><div><p><b>{t('ui.institute')}</b><br />{t('contact.mainAddress')}</p><p><a href="tel:+390464485511">{t('contact.phone')}</a><br /><a href={`mailto:${t('contact.email')}`}>{t('contact.email')}</a></p></div><button onClick={() => go('contacts')}>{t('nav.contact')} <Arrow /></button></section>
+    <section className="quick-start"><p>Da dove vuoi iniziare?</p>{paths.map(path => <button onClick={() => go(path.id)} key={path.id}><span>{path.no}</span>{path.title}<Arrow /></button>)}</section>
+    <section className="intro"><div><p className="kicker">Una scuola che ascolta</p><h2>Imparare non ha<br />un’unica <em>strada.</em></h2></div><div><p>Al Centro EdA trovi insegnanti, tempo e strumenti per costruire un percorso su misura. Le lezioni si svolgono al mattino, al pomeriggio e in orario preserale, per stare accanto alla vita di ciascuno.</p><button className="inline-link" onClick={() => go('about')}>Conosci il Centro <Arrow /></button></div></section>
+    <section className="pathways"><div className="section-heading"><p className="kicker">I percorsi</p><h2>Scegli ciò che ti porta <em>avanti.</em></h2></div><div className="path-grid">{paths.map(path => <button className={`path-card ${path.tone}`} onClick={() => go(path.id)} key={path.id}><span>{path.no}</span><h3>{path.title}</h3><p>{path.text}</p><i><Arrow /></i></button>)}</div></section>
+    <section className="notice-board"><div className="notice-intro"><p className="kicker">Ora al Centro</p><h2>Informazioni<br />in <em>evidenza.</em></h2><button className="inline-link" onClick={() => go('contacts')}>Tutti i contatti <Arrow /></button></div><div className="notice-list"><article><p className="notice-tag">Iscrizioni 2026/27</p><h3>Dal 10 agosto è possibile prenotare il colloquio.</h3><p>Per l’iscrizione servono un documento di identità valido e, se disponibile, il codice fiscale.</p><a href="https://registroelettronico.nettunopa.it/isccpia/?id=120101" target="_blank" rel="noreferrer" aria-label="Vai alla prenotazione: si apre in una nuova finestra">Vai alla prenotazione <Arrow /></a></article><article><p className="notice-tag">Esami CILS</p><h3>21 ottobre e 3 dicembre 2026.</h3><p>Per le iscrizioni è necessario un appuntamento: chiama lo 0464 485511 e chiedi di Roberto.</p><button onClick={() => go('exams')}>Date e livelli <Arrow /></button></article></div></section>
+    <section className="community"><div className="community-photo"><img src="https://lh3.googleusercontent.com/sitesv/AG8ngQU6mJc-r-6gzKQWdtbZgwt99fWOY19awBxUFzCpMM1HFa3txNH1Iq-KAhcFxp0e7gDplXDSjkDs6LZUA12lnj2V_EjR9vYyTEnW5IH3rJOExykPR1VQ1YqFNI_GLsYclb4fO89MXgbVP-1ipNvZUOTRLZ8DgasS6aj7Okvu-u5hTnVZAJ3A5HtuZE6X03I663_zJJRek7nVXbB290bXUZs881G5nTAZ9nPPYZ4H=w1280" alt="Ingresso dell’Istituto Don Milani di Rovereto" /></div><div className="community-copy"><p className="kicker">Oltre l’aula</p><h2>Una comunità<br />in <em>movimento.</em></h2><p>Conoscere Rovereto, incontrare persone, scoprire servizi e luoghi del territorio: imparare insieme significa anche sentirsi parte di qualcosa.</p><button className="inline-link" onClick={() => go('culture')}>Scopri le attività <Arrow /></button></div></section>
+    <section className="visit"><div><p className="kicker">Vieni a trovarci</p><h2>Ti aspettiamo<br />a <em>Rovereto.</em></h2></div><div><p><b>Centro EdA · Istituto Don Milani</b><br />Via A. Balista 2, 38068 Rovereto (TN)</p><p><a href="tel:+390464485511">0464 485511</a><br /><a href="mailto:segreteria.eda@domir.it">segreteria.eda@domir.it</a></p></div><button onClick={() => go('contacts')}>Contatti <Arrow /></button></section>
   </main>
 }
 
 function ContentPage({ page, setPage }) {
-  const { t, messages } = useI18n()
   const go = (next) => { setPage(next); window.scrollTo({ top: 0, behavior: 'smooth' }) }
-  const quote = messages.about.testimonials[1]
   const pages = {
-    about: { eyebrow: t('about.title'), title: t('about.communityTitle'), lead: t('ui.aboutLead'), body: <><div className="quote">“{quote.quote}”<small>{quote.name} · {t('ui.studentQuoteBy')}</small></div><div className="body-columns"><p>{t('ui.aboutBody')}</p><p>{t('about.coordinatorTitle')}: {t('about.coordinatorName')}</p></div><ul className="teacher-list">{messages.about.teachers.map(teacher => <li key={teacher}>{teacher}</li>)}</ul></> },
-    italian: { eyebrow: t('italianCourses.title'), title: t('italianCourses.title'), lead: t('ui.italianLead'), body: <div className="course-catalog">{messages.italianCourses.courses.map(course => <article key={course.title}><h3>{course.title}</h3><p>{course.description}</p></article>)}</div> },
-    languages: { eyebrow: t('languageCourses.title'), title: t('languageCourses.courseTitle'), lead: t('ui.languagesLead'), body: <><p>{t('languageCourses.description')}</p><div className="feature-stack"><article><b>{t('ui.modules')}</b><p>{t('ui.modulesText')}</p></article><article><b>{t('ui.weekly')}</b><p>{t('ui.weeklyText')}</p></article><article><b>{t('ui.paidLevels')}</b><p>{t('ui.paidLevelsText')}</p></article></div></> },
-    school: { eyebrow: t('school.title'), title: t('school.title'), lead: t('ui.schoolLead'), body: <><p>{t('school.intro')}</p><p>{t('school.facilities')}</p><div className="body-columns"><div><h3>{t('ui.howItWorks')}</h3><p>{t('ui.howItWorksText')}</p></div><div><h3>{t('ui.beforeStart')}</h3><p>{t('ui.beforeStartText')}</p></div></div><h3>{t('school.holidaysTitle')}</h3><ul>{messages.school.holidays.map(day => <li key={day}>{day}</li>)}</ul></> },
-    exams: { eyebrow: t('exams.cilsTitle'), title: t('exams.title'), lead: t('ui.examsLead'), body: <><p>{t('exams.description')}</p><div className="level-row">{t('exams.levels').split('—').map(level => <span key={level}>{level.trim()}</span>)}</div><div className="exam-dates"><article><p>{t('ui.octDate')}</p><h3>{messages.news.cilsOct.level}</h3><span>{t('ui.octWindow')}</span></article><article><p>{t('ui.decDate')}</p><h3>{messages.news.cilsDec.levels}</h3><span>{t('ui.decWindow')}</span></article></div><p className="call-note">{t('common.phoneRoberto')}: <a href="tel:+390464485511">{t('contact.phone')}</a></p></> },
-    culture: { eyebrow: t('activities.title'), title: t('activities.title'), lead: t('ui.cultureLead'), body: <div className="activity-grid">{messages.activities.items.map((activity, index) => <article key={activity.title}><span>{String(index + 1).padStart(2, '0')}</span><div><h3>{activity.title}</h3><p>{activity.description}</p></div></article>)}</div> },
-    contacts: { eyebrow: t('contact.title'), title: t('contact.title'), lead: t('ui.contactsLead'), body: <div className="contact-cards"><article><span>{t('ui.whereWeAre')}</span><h3>{t('contact.mainAddress')}</h3></article><article><span>{t('ui.office')}</span><h3><a href="tel:+390464485511">{t('contact.phone')}</a><br /><a href={`mailto:${t('contact.email')}`}>{t('contact.email')}</a></h3></article><article><span>{t('ui.anAppointment')}</span><h3>{t('ui.startConversation')}</h3><a className="primary-action" href={bookingUrl} target="_blank" rel="noreferrer" aria-label={`${t('ui.bookCta')}: ${t('ui.newWindow')}`}>{t('ui.bookCta')} <Arrow /></a></article></div> },
-    accessibility: { eyebrow: t('ui.accessibility'), title: t('accessibility.title'), lead: t('accessibility.lead'), body: <div className="accessibility-content"><section><h3>{t('accessibility.designedTitle')}</h3><ul>{messages.accessibility.items.map(item => <li key={item}>{item}</li>)}</ul></section><section><h3>{t('accessibility.statementTitle')}</h3><p>{t('accessibility.statement1')}</p><p>{t('accessibility.statement2')}</p></section><section><h3>{t('accessibility.reportTitle')}</h3><p>{t('accessibility.reportBody')}</p><a className="primary-action" href={`mailto:${t('contact.email')}?subject=${encodeURIComponent(t('ui.accessibility'))}`}>{t('accessibility.reportCta')} <Arrow /></a></section></div> },
+    about: { eyebrow: 'Il Centro', title: <>Persone, storie,<br /><em>possibilità.</em></>, lead: 'Il Centro EdA è una scuola pubblica dove le persone adulte possono tornare a imparare, con il proprio ritmo e il proprio obiettivo.', body: <><div className="quote">“Ora posso chiedere, parlare, capire e rispondere. Voglio continuare a studiare.”<small>Una studentessa del Centro EdA</small></div><div className="body-columns"><p>Qui l’istruzione incontra la vita quotidiana. Lavoriamo con chi vuole imparare l’italiano, riprendere gli studi, ottenere una certificazione o orientarsi nel territorio.</p><p>Un’équipe di insegnanti di italiano, storia, geografia, matematica e lingue accompagna i percorsi. Il coordinatore è il prof. Fabrizio D’Angella.</p></div></> },
+    italian: { eyebrow: 'Corsi di italiano', title: <>La lingua per<br /><em>esserci davvero.</em></>, lead: 'Percorsi dal pre-A1 al C2, costruiti per accompagnare ogni persona verso autonomia, studio, lavoro e cittadinanza.', body: <div className="course-catalog">{italianCourses.map(([level, description, meta]) => <article key={level}><span>{level}</span><h3>{description}</h3><p>{meta}</p></article>)}</div> },
+    languages: { eyebrow: 'Corsi di lingue', title: <>Il mondo parla<br /><em>molte lingue.</em></>, lead: 'Corsi di inglese, tedesco e spagnolo per chi desidera comunicare, viaggiare e continuare a crescere.', body: <div className="feature-stack"><article><b>2 moduli</b><p>24 ore ciascuno: da ottobre a gennaio e da febbraio a maggio.</p></article><article><b>1 incontro a settimana</b><p>Lezioni di due ore, generalmente tra le 19:00 e le 21:00.</p></article><article><b>Livelli A1 – B2</b><p>I corsi sono a pagamento e vengono attivati al raggiungimento del numero minimo di iscritti.</p></article></div> },
+    school: { eyebrow: 'Scuola media', title: <>Riprendere gli studi<br /><em>è possibile.</em></>, lead: 'Un percorso per conseguire il diploma conclusivo del primo ciclo e aprire nuove opportunità di studio e lavoro.', body: <div className="body-columns"><div><h3>Come funziona</h3><p>Il corso si svolge da ottobre a maggio, dal lunedì al giovedì, per un totale di 13 ore settimanali. Le lezioni sono disponibili al mattino, pomeriggio o in orario preserale.</p></div><div><h3>Prima di iniziare</h3><p>È possibile frequentare un percorso propedeutico di 200 ore per prepararsi alla scuola media e costruire le basi necessarie.</p></div></div> },
+    exams: { eyebrow: 'Esami CILS', title: <>Dai valore a ciò<br /><em>che sai fare.</em></>, lead: 'Il Centro EdA è sede d’esame CILS in convenzione con l’Università per Stranieri di Siena.', body: <><div className="level-row">{['B1 cittadinanza', 'B1', 'B2', 'C1', 'C2'].map(level => <span key={level}>{level}</span>)}</div><div className="exam-dates"><article><p>21 ottobre 2026</p><h3>B1 cittadinanza</h3><span>Iscrizioni dal 1 al 15 settembre</span></article><article><p>3 dicembre 2026</p><h3>B1 cittadinanza, B1, B2, C1 e C2</h3><span>Iscrizioni dal 5 al 19 ottobre</span></article></div><p className="call-note">Per entrambi gli appuntamenti è necessario chiamare lo <a href="tel:+390464485511">0464 485511</a> e chiedere di Roberto.</p></> },
+    culture: { eyebrow: 'Vita al Centro', title: <>Imparare insieme,<br /><em>vivere insieme.</em></>, lead: 'Le attività culturali fanno del Centro EdA un punto di incontro con Rovereto, il territorio e le persone che lo abitano.', body: <div className="activity-grid">{activities.map((activity, index) => <article key={activity}><span>{String(index + 1).padStart(2, '0')}</span><h3>{activity}</h3></article>)}</div> },
+    contacts: { eyebrow: 'Contatti', title: <>Parliamone<br /><em>insieme.</em></>, lead: 'Scrivici, chiamaci o prenota un colloquio: ti aiuteremo a capire qual è il percorso più adatto a te.', body: <div className="contact-cards"><article><span>Dove siamo</span><h3>Via A. Balista 2<br />38068 Rovereto (TN)</h3></article><article><span>Segreteria</span><h3><a href="tel:+390464485511">0464 485511</a><br /><a href="mailto:segreteria.eda@domir.it">segreteria.eda@domir.it</a></h3></article><article><span>Un appuntamento</span><h3>Iniziamo da una conversazione.</h3><a className="primary-action" href="https://registroelettronico.nettunopa.it/isccpia/?id=120101" target="_blank" rel="noreferrer" aria-label="Prenota il colloquio: si apre in una nuova finestra">Prenota il colloquio <Arrow /></a></article></div> },
+    accessibility: { eyebrow: 'Accessibilità', title: <>Un sito pensato<br />per <em>tutte le persone.</em></>, lead: 'L’accessibilità è parte del progetto: contenuti chiari, interazioni utilizzabili da tastiera e un’esperienza che non esclude nessuno.', body: <div className="accessibility-content"><section><h3>Cosa abbiamo progettato</h3><ul><li>Struttura semantica con aree di navigazione, contenuto principale e titoli gerarchici.</li><li>Uso completo da tastiera, incluso il collegamento “Salta al contenuto principale”.</li><li>Indicatori di focus ben visibili, contrasto elevato e testi leggibili.</li><li>Layout adattabile, comandi con aree di attivazione adeguate e supporto alla riduzione del movimento.</li><li>Alternative testuali per le immagini informative e moduli con etichette esplicite.</li></ul></section><section><h3>Dichiarazione di accessibilità</h3><p>Questo progetto è stato realizzato con riferimento a WCAG 2.1 livello AA e alla norma EN 301 549. Lo stato di conformità non può essere dichiarato senza una verifica formale dell’ente titolare.</p><p>Per un sito di una pubblica amministrazione, la dichiarazione ufficiale deve essere compilata e pubblicata dal Responsabile per la Transizione Digitale tramite la piattaforma AgID, quindi aggiornata annualmente.</p></section><section><h3>Segnala un problema</h3><p>Se riscontri una barriera di accessibilità, puoi scrivere alla segreteria specificando la pagina, il problema e, se possibile, la tecnologia assistiva utilizzata.</p><a className="primary-action" href="mailto:segreteria.eda@domir.it?subject=Segnalazione%20accessibilit%C3%A0">Invia una segnalazione <Arrow /></a></section></div> },
   }
   const current = pages[page]
-  return <main className="content-page" id="main-content" tabIndex="-1"><p className="kicker">{current.eyebrow}</p><h1>{current.title}</h1><p className="page-lead">{current.lead}</p><div className="page-body">{current.body}</div>{page !== 'accessibility' && <section className="page-next"><p>{t('ui.needHelp')}</p><button onClick={() => go('contacts')}>{t('ui.talkStaff')} <Arrow /></button></section>}</main>
+  return <main className="content-page" id="main-content" tabIndex="-1"><p className="kicker">{current.eyebrow}</p><h1>{current.title}</h1><p className="page-lead">{current.lead}</p><div className="page-body">{current.body}</div>{page !== 'accessibility' && <section className="page-next"><p>Hai bisogno di un orientamento?</p><button onClick={() => go('contacts')}>Parla con la segreteria <Arrow /></button></section>}</main>
 }
 
 function LegacyDashboard({ setPage }) {
@@ -234,57 +217,22 @@ function Dashboard({ setPage }) {
   return <main className="dashboard" id="main-content" tabIndex="-1"><div className="dashboard-top"><div><button className="back" onClick={() => setPage('home')}>← Torna al sito</button><p className="kicker">Segreteria · {user.role === 'admin' ? 'amministratore' : 'operatore'} · {user.username}</p><h1>Agenda e richieste</h1></div><div className="dashboard-tools"><button className="logout" onClick={logout}>Esci</button>{user.role === 'admin' && <button className="secondary-action" onClick={() => setStaffOpen(value => !value)}>{staffOpen ? 'Chiudi account' : 'Gestisci account'}</button>}<button className="primary-action" onClick={() => setEditing(blankAppointment(selectedDate))}>+ Nuova richiesta</button></div></div><section className="dashboard-summary"><article><span>Appuntamenti</span><b>{appointments.length}</b><p>nella data selezionata</p></article><article><span>Da confermare</span><b>{appointments.filter(item => item.status === 'Da confermare').length}</b><p>richiedono un contatto</p></article><article><span>Prossimo</span><b>{appointments[0]?.time || '—'}</b><p>{appointments[0]?.name || 'nessun appuntamento'}</p></article></section>{error && <p className="form-error" role="alert">{error}</p>}{notice && <p className="form-notice" role="status">{notice}</p>}{staffOpen && user.role === 'admin' && <StaffPanel staff={staff} onCreate={createStaff} onUpdate={updateStaff} busy={busy} />}<section className="agenda"><div className="agenda-head"><div><p className="kicker">Agenda</p><h2>{formattedDate(selectedDate)}</h2></div><div className="agenda-controls"><label>Data<input type="date" value={selectedDate} onChange={event => { setSelectedDate(event.target.value); setError(''); setNotice('') }} /></label><div className="filter-row" aria-label="Filtra gli appuntamenti">{['Tutti', 'Da confermare', 'Confermato', 'Annullato'].map(value => <button className={filter === value ? 'selected' : ''} aria-pressed={filter === value} onClick={() => setFilter(value)} key={value}>{value}</button>)}</div></div></div><div className="agenda-list">{visible.length ? visible.map(item => <article key={item.id}><time>{item.time}</time><div className="appointment-main"><h3>{item.name}</h3><p>{item.course || item.reason} · {item.language} · <a href={`tel:${item.phone.replaceAll(' ', '')}`}>{item.phone}</a></p>{item.request_code && <small>Richiesta {item.request_code}</small>}</div><span className={`appointment-status ${item.status.toLowerCase().replaceAll(' ', '-')}`}>{item.status}</span><div className="agenda-actions">{item.status !== 'Confermato' && <button onClick={() => changeStatus(item.id, 'Confermato')}>Conferma</button>}{item.status !== 'Annullato' && <button onClick={() => changeStatus(item.id, 'Annullato')}>Annulla</button>}<button onClick={() => setEditing(item)}>Modifica</button><button onClick={() => queueNotification(item.id, 'email')}>Email</button><button onClick={() => queueNotification(item.id, 'sms')}>SMS</button><a href={`/api/appointments/${item.id}/calendar.ics`}>Calendario</a><button onClick={() => showAudit(item.id)}>Storico</button>{user.role === 'admin' && <button className="danger-action" onClick={() => removeAppointment(item.id)}>Elimina</button>}</div></article>) : <p className="empty-state">Nessun appuntamento in questa vista.</p>}</div></section>{auditFor && <section className="audit-panel" aria-labelledby="audit-title"><div><p className="kicker">Tracciabilità</p><h2 id="audit-title">Storico richiesta #{auditFor}</h2></div><button className="dialog-close audit-close" onClick={() => setAuditFor(null)} aria-label="Chiudi storico">×</button>{auditEvents.length ? <ol>{auditEvents.map(event => <li key={event.id}><b>{event.action}</b><span>{event.actor} · {new Date(`${event.created_at}Z`).toLocaleString('it-IT')}</span>{event.metadata.fields && <small>Campi aggiornati: {event.metadata.fields.join(', ')}</small>}</li>)}</ol> : <p>Nessuna attività registrata.</p>}</section>}{editing && <RegistrationDialog appointment={editing} onClose={() => setEditing(null)} onSave={saveAppointment} busy={busy} />}</main>
 }
 
-function Footer({ setPage }) {
-  const { t } = useI18n()
-  return <footer><button className="identity footer-identity" onClick={() => setPage('home')}><span className="identity-dot">EdA</span><span><b>Don Milani</b><small>{t('ui.brandSmall')}</small></span></button><p>{t('ui.footerLine')}</p><button className="accessibility-link" onClick={() => { setPage('accessibility'); window.scrollTo({ top: 0, behavior: 'smooth' }) }}>{t('ui.accessibility')}</button><span>{t('footer.rights')}</span></footer>
-}
+function Footer({ setPage }) { return <footer><button className="identity footer-identity" onClick={() => setPage('home')}><span className="identity-dot">EdA</span><span><b>Don Milani</b><small>Rovereto · Educazione degli adulti</small></span></button><p>Una scuola pubblica, aperta alle persone e al territorio.</p><button className="accessibility-link" onClick={() => { setPage('accessibility'); window.scrollTo({ top: 0, behavior: 'smooth' }) }}>Accessibilità</button><span>© 2026 Centro EdA Don Milani</span></footer> }
 
 function App() {
-  const [{ locale }, setRoute] = useState(() => parseRoute(window.location.pathname))
-  return <I18nProvider locale={locale}><TrackedApp onLocalePath={setRoute} /></I18nProvider>
-}
-
-function TrackedApp({ onLocalePath }) {
-  const initial = parseRoute(window.location.pathname)
-  const [locale, setLocaleState] = useState(initial.locale)
-  const [page, setPage] = useState(initial.page)
-  const { t } = useI18n()
-
-  const apply = (nextLocale, nextPage, mode = 'push') => {
-    const target = hrefFor(nextLocale, nextPage)
-    if (window.location.pathname !== target) window.history[mode === 'replace' ? 'replaceState' : 'pushState']({}, '', target)
-    setLocaleState(nextLocale)
-    setPage(nextPage)
-    onLocalePath({ locale: nextLocale, page: nextPage })
+  const [page, setPage] = useState(() => pageFromPath(window.location.pathname))
+  const navigate = next => {
+    const target = pagePaths[next] || pagePaths.home
+    if (window.location.pathname !== target) window.history.pushState({}, '', target)
+    setPage(next)
   }
-
-  const navigate = next => apply(locale, next)
-  const setLocale = nextLocale => apply(nextLocale, page)
-
   useEffect(() => {
-    const route = parseRoute(window.location.pathname)
-    if (!route.hasLocale) apply(route.locale || defaultLocale, route.page, 'replace')
-    const onPopState = () => {
-      const next = parseRoute(window.location.pathname)
-      setLocaleState(next.locale)
-      setPage(next.page)
-      onLocalePath(next)
-    }
+    const onPopState = () => setPage(pageFromPath(window.location.pathname))
     window.addEventListener('popstate', onPopState)
     return () => window.removeEventListener('popstate', onPopState)
   }, [])
-
-  useEffect(() => {
-    document.documentElement.lang = locale
-    document.documentElement.dir = rtlLocales.includes(locale) ? 'rtl' : 'ltr'
-    document.title = t('meta.title')
-    const description = document.querySelector('meta[name="description"]')
-    if (description) description.setAttribute('content', t('meta.description'))
-  }, [locale, t])
-
   useEffect(() => { if (page !== 'home') document.getElementById('main-content')?.focus() }, [page])
-
-  return <><a className="skip-link" href="#main-content">{t('ui.skip')}</a><Header page={page} setPage={navigate} locale={locale} setLocale={setLocale} />{page === 'home' ? <Home setPage={navigate} /> : page === 'dashboard' ? <Dashboard setPage={navigate} /> : <ContentPage page={page} setPage={navigate} />}<Footer setPage={navigate} /></>
+  return <><a className="skip-link" href="#main-content">Salta al contenuto principale</a><Header page={page} setPage={navigate} />{page === 'home' ? <Home setPage={navigate} /> : page === 'dashboard' ? <Dashboard setPage={navigate} /> : <ContentPage page={page} setPage={navigate} />}<Footer setPage={navigate} /></>
 }
 
 export default App
